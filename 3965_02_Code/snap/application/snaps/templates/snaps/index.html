@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+<div class="new-snap">
+	<p><a href="{{url_for('snaps.add')}}">New Snap</a></p>
+</div>
+
+{% for snap in snaps %}
+<div class="snap">
+	<span class="author">{{snap.user.username}}</span>, published on <span class="date">{{snap.created_on}}</span>
+	<pre><code>{{snap.content}}</code></pre>
+</div>
+{% endfor %}
+
+{% endblock %}
